@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date</title>
+</head>
+
+<body>
+
+    <h1 id="clock"></h1>
+
+    <script>
+
+        setInterval(() => {
+            let dt = new Date();
+            let day = dayName(dt.getDay());
+            let date = dt.getDate();
+            let month = dt.getMonth() + 1;
+            let year = dt.getFullYear();
+            let hour = appendZero(dt.getHours());
+            let minutes = appendZero(dt.getMinutes());
+            let seconds = appendZero(dt.getSeconds());
+
+            let pera = document.getElementById("clock");
+
+            pera.innerHTML = day + "," + " " + date + "/" + month + "/" + year + "/" + hour + ":" + minutes + ":" + seconds;
+
+
+
+        }, 1000);
+
+        function dayName(num) {
+            const days = ["Monday", "Tuesday", "Wednesday", "Thirsday", "Friday", "Saturday", "Sunday"];
+            return days[num - 1]
+        }
+
+        function appendZero(num) {
+            // return num < 10 ? "0" + num : num;
+            if (num < 10) {
+                return "0" + num
+            }
+            else {
+                return num
+            }
+        }
+    </script>
+
+</body>
+
+</html>
